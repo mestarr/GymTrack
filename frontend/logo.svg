@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="52" height="52" role="img" aria-label="GymTrack logo">
+  <rect width="48" height="48" rx="8" fill="#ffffff"/>
+  <!-- rucka -->
+  <path d="M14 18 C14 10, 34 10, 34 18" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+  <!-- tijelo -->
+  <ellipse cx="24" cy="30" rx="13" ry="11" fill="#111111"/>
+  <!-- sjena/detalj -->
+  <ellipse cx="24" cy="32" rx="8" ry="5" fill="#333333" opacity="0.35"/>
+</svg>
