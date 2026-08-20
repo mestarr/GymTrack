@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+backend/database.sqlite
+backend/data/
+.env
+.env.*
+node_modules/
+ignore/
