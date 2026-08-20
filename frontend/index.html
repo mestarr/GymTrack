@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymTrack</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header-bar py-3 mb-3">
+    <div class="container header-inner">
+        <img src="logo.svg" alt="GymTrack logo" class="site-logo">
+        <div class="header-text">
+            <h1 class="mb-0">GymTrack</h1>
+            <p class="mb-0 subtitle">Upravljanje clanovima teretane</p>
+        </div>
+    </div>
+</header>
+
+<div class="container main-wrap">
+
+    <div id="app-toast" class="alert d-none" role="alert"></div>
+    <div id="backend-error" class="alert alert-warning d-none" role="alert"></div>
+
+    <ul class="nav nav-pills main-nav mb-4" id="main-nav">
+        <li class="nav-item">
+            <button class="nav-link active" data-page="pocetna">Pocetna</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-page="clanovi">Clanovi Teretane</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-page="treningi">Treningi Clanova</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" data-page="statistike">Statistike Clanova</button>
+        </li>
+    </ul>
+
+    
+    <section id="page-pocetna" class="app-page">
+        <div class="panel-box mb-4">
+            <h2>Dobrodosli u GymTrack App</h2>
+            <p class="mb-0">
+                Aplikacija sluzi vlasniku teretane za vođenje treninga clanova.
+                Vlasnik moze unositi treninge ili pogledati statistike i grafikone clanova.
+            </p>
+        </div>
+        <div class="row g-3 mb-4 equal-height">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <span class="stat-label">Ukupno clanova</span>
+                    <span id="home-ukupno-clanova" class="stat-value">0</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <span class="stat-label">Aktivnih clanova</span>
+                    <span id="home-aktivnih" class="stat-value">0</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <span class="stat-label">Ukupno treninga</span>
+                    <span id="home-ukupno-treninzi" class="stat-value">0</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <span class="stat-label">Prosj. tezina (kg)</span>
+                    <span id="home-prosj-tezina" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+        <section class="panel-box">
+            <h2> popis zadnjih treninga</h2>
+            <ul id="home-zadnji-treninzi" class="list-group"></ul>
+        </section>
+    </section>
+
+<section id="page-clanovi" class="app-page d-none">
+        <div class="row g-4 clan-layout-row">
+            <div class="col-lg-5">
+                <section class="panel-box panel-clan-lista">
+                    <h2>Lista clanova</h2>
+                    <div class="mb-3">
+                        <input type="text" id="search-clan" class="form-control" placeholder="Pretrazi po imenu...">
+                    </div>
+                    <p class="text-muted small">Clanovi teretane: <span id="clan-count">0</span></p>
+                    <ul id="clan-list" class="list-group clan-list"></ul>
+                </section>
+            </div>
+            <div class="col-lg-7">
+                <section class="panel-box panel-clan-detalji">
+                    <h2>Detalji clana:</h2>
+                    <ul class="nav nav-tabs mb-3" id="clan-tabs">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-tab="view">Pregled Clana</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-tab="add">Dodaj Clana</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-tab="edit">Uredi Clana</button>
+                        </li>
+                    </ul>
+
+                    <div id="clan-view" class="tab-panel">
+                        <p id="clan-placeholder" class="text-muted">Odaberi clana s lijeve liste.</p>
+                        <div id="clan-details" class="d-none">
+                            <p><strong>Ime:</strong> <span id="view-ime"></span></p>
+                            <p><strong>Prezime:</strong> <span id="view-prezime"></span></p>
+                            <p><strong>E-mail:</strong> <span id="view-email"></span></p>
+                            <p><strong>Datum upisa:</strong> <span id="view-datum"></span></p>
+                            <p><strong>Paket:</strong> <span id="view-paket"></span></p>
+                            <p><strong>Aktivan:</strong> <span id="view-aktivan"></span></p>
+                            <p><strong>Broj treninga:</strong> <span id="view-broj-treninzi"></span></p>
+                            <button id="btn-delete-clan" class="btn btn-danger btn-sm mt-2">Obrisi clana</button>
+                        </div>
+                    </div>
+
+                    <form id="clan-form" class="tab-panel d-none">
+                        <input type="hidden" id="clan-form-mode" value="add">
+                        <div class="mb-2">
+                            <label class="form-label">Ime</label>
+                            <input type="text" id="form-ime" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Prezime</label>
+                            <input type="text" id="form-prezime" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Email</label>
+                            <input type="email" id="form-email" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Datum upisa</label>
+                            <input type="date" id="form-datum" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Paket</label>
+                            <select id="form-paket" class="form-select"></select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" id="form-aktivan" class="form-check-input" checked>
+                            <label class="form-check-label" for="form-aktivan">Aktivan clan</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Spremi</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="row g-4 mt-1">
+            <div class="col-12">
+                <section class="panel-box panel-clan-treninzi">
+                    <h2>Treninzi odabranog Clana:</h2>
+                    <ul id="trening-list-clan" class="list-group clan-trening-list"></ul>
+                </section>
+            </div>
+        </div>
+    </section>
+
+<section id="page-treningi" class="app-page d-none">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <section class="panel-box">
+                    <h2>Dodaj trening</h2>
+                    <p class="small text-muted">Trening se moze dodati samo aktivnom clanu !</p>
+                    <form id="trening-form">
+                        <div class="mb-2">
+                            <label class="form-label">Clan</label>
+                            <select id="trening-clan" class="form-select" required></select>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Datum</label>
+                            <input type="date" id="trening-datum" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Vrsta vjezbe:</label>
+                            <select id="trening-vrsta" class="form-select" required></select>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Tezina u kg:</label>
+                            <input type="number" step="0.5" id="trening-tezina" class="form-control" value="0">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Ponavljanja</label>
+                            <input type="number" id="trening-ponavljanja" class="form-control" value="0">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Trajanje (min)</label>
+                            <input type="number" id="trening-trajanje" class="form-control" value="30">
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Dodaj trening</button>
+                    </form>
+                </section>
+            </div>
+            <div class="col-lg-8">
+                <section class="panel-box">
+                    <h2>Filtriranje treninga</h2>
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Od datuma</label>
+                            <input type="date" id="filter-datum-od" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Do datuma</label>
+                            <input type="date" id="filter-datum-do" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Vrsta vjezbe</label>
+                            <select id="filter-vrsta" class="form-select">
+                                <option value="">Sve</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button id="btn-filter" class="btn btn-outline-secondary btn-sm">Primijeni</button>
+                    <button id="btn-reset-filter" class="btn btn-outline-secondary btn-sm">Reset</button>
+                    <p class="small text-muted mt-2 mb-1">Prikazano <span id="trening-filter-count">0</span> treninga</p>
+                    <ul id="trening-list-filtered" class="list-group small-list mt-2"></ul>
+                    <div id="trening-pagination" class="pagination-wrap mt-2"></div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-statistike" class="app-page d-none">
+        <section class="panel-box">
+            <h2>Statistike i grafikoni Clanova:</h2>
+            <p class="small text-muted mb-3">
+                Informacije o treninzima clanova.
+            </p>
+            <div class="row mb-3 equal-height">
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <span class="stat-label">Broj posjeta</span>
+                        <span id="stat-posjeta" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <span class="stat-label">Prosjecna tezina u kilogramima</span>
+                        <span id="stat-tezina" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <span class="stat-label">Prosjecan broj ponavljanja</span>
+                        <span id="stat-ponavljanja" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 chart-wrap">
+                    <h3 class="chart-title">Treningi po vrsti</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="col-md-4 chart-wrap">
+                    <h3 class="chart-title">Napredak tezine</h3>
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="col-md-4 chart-wrap">
+                    <h3 class="chart-title" id="pie-title">Aktivni clanovi po paketu</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </section>
+
+</div>
+
+<footer class="footer-bar py-3">
+    <div class="container text-center">
+        <p class="mb-1">GymTrack - projekt za kolegij Informacijski sustavi</p>
+        <p class="mb-0 small">FIPU  |  UNIPU</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="fetchData.js"></script>
+<script src="displayData.js"></script>
+<script src="pageHandling.js"></script>
+<script src="formHandling.js"></script>
+<script src="filterHandling.js"></script>
+<script src="chartHandling.js"></script>
+
+</body>
+</html>
