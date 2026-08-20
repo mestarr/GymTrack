@@ -6,6 +6,15 @@
   <a href="https://www.gnu.org/software/bash/" target="_blank">  <img src="https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff" />
   <a href="https://www.linux.org/" target="_blank">  <img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
   <a href="https://git-scm.com/" target="_blank">  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff" />
+  <a href="https://www.python.org/" target="_blank">  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" />
+  <a href="https://flask.palletsprojects.com/" target="_blank">  <img src="https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=fff" />
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">  <img src="https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=fff" />
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">  <img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff" />
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" />
+  <a href="https://getbootstrap.com/" target="_blank">  <img src="https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=fff" />
+  <a href="https://www.chartjs.org/" target="_blank">  <img src="https://img.shields.io/badge/Chart.js-FF6384?logo=chart.js&logoColor=fff" />
+  <a href="https://www.sqlite.org/" target="_blank">  <img src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=fff" />
+  <a href="https://www.docker.com/" target="_blank">  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff" />
 </p>
   
 **Nositelj**: [Izv. prof. dr. sc. Darko Etinger](https://fipu.unipu.hr/fipu/darko.etinger)  
