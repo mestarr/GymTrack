@@ -69,7 +69,7 @@ Aplikacija je podijeljena u 4 dijela (navigacija na vrhu):
 
 ## Use case dijagram
 
-Dijagram je u datoteci `GymTrack.png` u root mapi repozitorija ili  u GitHub [README.md](http://README.md) Datoteki.
+![Use case dijagram GymTrack](Use%20case%20dijagram%20GymTrack.png)
 
 Use caseovi:
 
@@ -82,7 +82,7 @@ Use caseovi:
 
 ---
 
-##  Potreben su bile koristene Tehnologije:
+## Potreben su bile koristene Tehnologije:
 
 - Python
 - Flask
@@ -193,8 +193,6 @@ Vise detalja u `frontend/README.md`.
 ```bash
 docker compose up --build
 ```
-
-
 
 1. Onda je potrebano pričekati da se podignu kontejneri `backend` i `frontend`.
 2. Nako sto su se kontejneri uspjesno startali potrebno je otvori preglednik:
