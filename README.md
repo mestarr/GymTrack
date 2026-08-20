@@ -3,7 +3,6 @@
 # Preddiplomski kolegij: Informacijski sustavi (IS)
 
 <p>
-  <a href="https://www.gnu.org/software/bash/" target="_blank">  <img src="https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff" />
   <a href="https://www.linux.org/" target="_blank">  <img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
   <a href="https://git-scm.com/" target="_blank">  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff" />
   <a href="https://www.python.org/" target="_blank">  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" />
