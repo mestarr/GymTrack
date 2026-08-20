@@ -1,5 +1,27 @@
 # GymTrack
 
+# Preddiplomski kolegij: Informacijski sustavi (IS)
+
+<p>
+  <a href="https://www.gnu.org/software/bash/" target="_blank">  <img src="https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff" />
+  <a href="https://www.linux.org/" target="_blank">  <img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" />
+  <a href="https://git-scm.com/" target="_blank">  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff" />
+</p>
+  
+**Nositelj**: [Izv. prof. dr. sc. Darko Etinger](https://fipu.unipu.hr/fipu/darko.etinger)  
+**Izvođač** [Lorena Jeger, mag. inf.](https://fipu.unipu.hr/fipu/lorena.jeger)  
+**Asistent**: [Jelena Nikolić Ražem, mag. oec.](https://fipu.unipu.hr/fipu/jelena.nikolic_razem)
+
+**Ustanova**: [Sveučilište Jurja Dobrile u Puli](https://www.unipu.hr/), [Fakultet informatike u Puli](https://fipu.unipu.hr/)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lukablaskovic/FIPU-WA/refs/heads/main/FIPU_UNIPU_white.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lukablaskovic/FIPU-WA/refs/heads/main/FIPU_UNIPU.png">
+  <img alt="Fakultet informatike u Puli (materijali iz kolegija Operacijski sustavi - Luka Blašković)" 
+       src="https://raw.githubusercontent.com/lukablaskovic/FIPU-WA/refs/heads/main/FIPU_UNIPU_white.png" width="300">
+</picture>
+
+
 **GymTrack** je studentski projekt iz kolegija **Informacijski sustavi**.
 
 - Autor: Stjepan Paun
